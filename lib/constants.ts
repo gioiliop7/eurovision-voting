@@ -1,46 +1,40 @@
 // Store all constants used across the application
-import type { Country, Theme } from "@/types"
+import type { Country, Theme } from "@/types";
 
-// Eurovision 2024 countries
+// Eurovision 2025 FINAL countries
 export const COUNTRIES: Country[] = [
-  { id: "albania", name: "Albania", flag: "🇦🇱" },
-  { id: "armenia", name: "Armenia", flag: "🇦🇲" },
-  { id: "australia", name: "Australia", flag: "🇦🇺" },
-  { id: "austria", name: "Austria", flag: "🇦🇹" },
-  { id: "azerbaijan", name: "Azerbaijan", flag: "🇦🇿" },
-  { id: "belgium", name: "Belgium", flag: "🇧🇪" },
-  { id: "croatia", name: "Croatia", flag: "🇭🇷" },
-  { id: "cyprus", name: "Cyprus", flag: "🇨🇾" },
-  { id: "czechia", name: "Czechia", flag: "🇨🇿" },
-  { id: "denmark", name: "Denmark", flag: "🇩🇰" },
-  { id: "estonia", name: "Estonia", flag: "🇪🇪" },
-  { id: "finland", name: "Finland", flag: "🇫🇮" },
-  { id: "france", name: "France", flag: "🇫🇷" },
-  { id: "georgia", name: "Georgia", flag: "🇬🇪" },
-  { id: "germany", name: "Germany", flag: "🇩🇪" },
-  { id: "greece", name: "Greece", flag: "🇬🇷" },
-  { id: "iceland", name: "Iceland", flag: "🇮🇸" },
-  { id: "ireland", name: "Ireland", flag: "🇮🇪" },
-  { id: "israel", name: "Israel", flag: "🇮🇱" },
-  { id: "italy", name: "Italy", flag: "🇮🇹" },
-  { id: "latvia", name: "Latvia", flag: "🇱🇻" },
-  { id: "lithuania", name: "Lithuania", flag: "🇱🇹" },
-  { id: "luxembourg", name: "Luxembourg", flag: "🇱🇺" },
-  { id: "malta", name: "Malta", flag: "🇲🇹" },
-  { id: "moldova", name: "Moldova", flag: "🇲🇩" },
-  { id: "netherlands", name: "Netherlands", flag: "🇳🇱" },
-  { id: "norway", name: "Norway", flag: "🇳🇴" },
-  { id: "poland", name: "Poland", flag: "🇵🇱" },
-  { id: "portugal", name: "Portugal", flag: "🇵🇹" },
-  { id: "romania", name: "Romania", flag: "🇷🇴" },
-  { id: "serbia", name: "Serbia", flag: "🇷🇸" },
-  { id: "slovenia", name: "Slovenia", flag: "🇸🇮" },
-  { id: "spain", name: "Spain", flag: "🇪🇸" },
-  { id: "sweden", name: "Sweden", flag: "🇸🇪" },
-  { id: "switzerland", name: "Switzerland", flag: "🇨🇭" },
-  { id: "ukraine", name: "Ukraine", flag: "🇺🇦" },
-  { id: "united_kingdom", name: "United Kingdom", flag: "🇬🇧" },
-]
+  { id: "albania", name: "Albania", iso: "al" },
+  { id: "armenia", name: "Armenia", iso: "am" },
+  { id: "australia", name: "Australia", iso: "au" },
+  { id: "austria", name: "Austria", iso: "at" },
+  { id: "czechia", name: "Czechia", iso: "cz" },
+  { id: "denmark", name: "Denmark", iso: "dk" },
+  { id: "estonia", name: "Estonia", iso: "ee" },
+  { id: "finland", name: "Finland", iso: "fi" },
+  { id: "france", name: "France", iso: "fr" },
+  { id: "georgia", name: "Georgia", iso: "ge" },
+  { id: "germany", name: "Germany", iso: "de" },
+  { id: "greece", name: "Greece", iso: "gr" },
+  { id: "iceland", name: "Iceland", iso: "is" },
+  { id: "ireland", name: "Ireland", iso: "ie" },
+  { id: "israel", name: "Israel", iso: "il" },
+  { id: "italy", name: "Italy", iso: "it" },
+  { id: "latvia", name: "Latvia", iso: "lv" },
+  { id: "lithuania", name: "Lithuania", iso: "lt" },
+  { id: "luxembourg", name: "Luxembourg", iso: "lu" },
+  { id: "malta", name: "Malta", iso: "mt" },
+  { id: "netherlands", name: "Netherlands", iso: "nl" },
+  { id: "norway", name: "Norway", iso: "no" },
+  { id: "poland", name: "Poland", iso: "pl" },
+  { id: "portugal", name: "Portugal", iso: "pt" },
+  { id: "serbia", name: "Serbia", iso: "rs" },
+  { id: "spain", name: "Spain", iso: "es" },
+  { id: "sweden", name: "Sweden", iso: "se" },
+  { id: "switzerland", name: "Switzerland", iso: "ch" },
+  { id: "ukraine", name: "Ukraine", iso: "ua" },
+  { id: "united_kingdom", name: "United Kingdom", iso: "gb" },
+  { id: "san_marino", name: "San Marino", iso: "sm" },
+];
 
 // Available themes - updated for Eurovision 2025
 export const THEMES: Theme[] = [
@@ -59,19 +53,38 @@ export const THEMES: Theme[] = [
     name: "Classic Eurovision",
     bgClass: "bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900",
   },
-  { id: "retro", name: "Retro 80s", bgClass: "bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-800" },
-  { id: "dark", name: "Elegant Dark", bgClass: "bg-gradient-to-br from-gray-900 via-gray-800 to-black" },
-]
+  {
+    id: "retro",
+    name: "Retro 80s",
+    bgClass: "bg-gradient-to-br from-pink-600 via-purple-600 to-indigo-800",
+  },
+  {
+    id: "dark",
+    name: "Elegant Dark",
+    bgClass: "bg-gradient-to-br from-gray-900 via-gray-800 to-black",
+  },
+];
 
 // Emoji reactions
-export const EMOJI_REACTIONS = ["❤️", "🔥", "👏", "✨", "🎵", "🎤", "🎸", "🥳", "🤩", "😍"]
+export const EMOJI_REACTIONS = [
+  "❤️",
+  "🔥",
+  "👏",
+  "✨",
+  "🎵",
+  "🎤",
+  "🎸",
+  "🥳",
+  "🤩",
+  "😍",
+];
 
 // Point options
-export const POINT_OPTIONS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
+export const POINT_OPTIONS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12];
 
 // Default custom categories
 export const DEFAULT_CATEGORIES = [
   { id: "staging", name: "Staging & Performance" },
   { id: "vocals", name: "Vocal Performance" },
   { id: "costume", name: "Costume & Styling" },
-]
+];

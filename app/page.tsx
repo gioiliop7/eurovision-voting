@@ -58,26 +58,28 @@ export default function Home() {
   const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
   const [resultCardUrl, setResultCardUrl] = useState<string>("");
 
-  // Generate QR code and result card when results are shown
   useEffect(() => {
-    if (!isVoting) {
-      const voteData: VoteData = {
-        points: votes,
-        categories: categoryVotes,
-        reactions: reactions,
-        theme: currentTheme,
-        customCategories: customCategories,
-      };
+    const generateData = async () => {
+      if (!isVoting) {
+        const voteData: VoteData = {
+          points: votes,
+          categories: categoryVotes,
+          reactions: reactions,
+          theme: currentTheme,
+          customCategories: customCategories,
+        };
 
-      // Generate QR code
-      generateQRCode(voteData).then((url) => {
-        if (url) setQrCodeUrl(url);
-      });
+        // Generate QR code
+        generateQRCode(voteData).then((url) => {
+          if (url) setQrCodeUrl(url);
+        });
 
-      // Generate result card
-      const cardUrl = generateResultCard();
-      if (cardUrl) setResultCardUrl(cardUrl);
-    }
+        const cardUrl = await generateResultCard();
+        if (cardUrl) setResultCardUrl(cardUrl);
+      }
+    };
+
+    generateData();
   }, [
     isVoting,
     votes,
@@ -200,7 +202,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={saveVotes}
-                  className="bg-[#4A1073]/50 backdrop-blur-sm border border-white/20 hover:bg-[#4A1073] text-white rounded-md px-6 py-2"
+                  className="bg-[#4A1073]/50 backdrop-blur-sm border border-white/20 hover:bg-[#4A1073] text-white hover:text-white rounded-md px-6 py-2"
                 >
                   <Save className="mr-2 h-4 w-4" />
                   Save Progress
@@ -241,13 +243,13 @@ export default function Home() {
                 <TabsList className="grid w-full grid-cols-2 lg:w-1/2 lg:mx-auto mb-8 bg-[#2E0A4A] text-white rounded-md overflow-hidden border border-white/10">
                   <TabsTrigger
                     value="points"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-3"
+                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
                   >
                     Points
                   </TabsTrigger>
                   <TabsTrigger
                     value="categories"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-3"
+                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
                   >
                     Categories
                   </TabsTrigger>

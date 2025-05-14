@@ -1,22 +1,24 @@
-"use client"
+"use client";
 
 // Share options component
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { ArrowLeft, Copy, Download, QrCode, Share2 } from "lucide-react"
-import { toast } from "@/hooks/use-toast"
-import { cn } from "@/lib/utils"
-
-interface ShareOptionsProps {
-  onNewVote: () => void
-  onCopyLink: () => void
-  onShortenUrl: () => Promise<string>
-  qrCodeUrl: string
-  resultCardUrl: string
-  onDownloadCard: () => void
-}
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ArrowLeft, Copy, Download, QrCode, Share2 } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { ShareOptionsProps } from "@/types";
 
 export function ShareOptions({
   onNewVote,
@@ -26,23 +28,23 @@ export function ShareOptions({
   resultCardUrl,
   onDownloadCard,
 }: ShareOptionsProps) {
-  const [copied, setCopied] = useState(false)
-  const [shortUrl, setShortUrl] = useState<string>("")
+  const [copied, setCopied] = useState(false);
+  const [shortUrl, setShortUrl] = useState<string>("");
 
   const handleCopy = (text?: string) => {
-    onCopyLink()
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    onCopyLink();
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleShortenUrl = async () => {
     try {
-      const url = await onShortenUrl()
-      setShortUrl(url)
+      const url = await onShortenUrl();
+      setShortUrl(url);
     } catch (error) {
-      console.error("Error shortening URL:", error)
+      console.error("Error shortening URL:", error);
     }
-  }
+  };
 
   return (
     <div className="mb-8 flex flex-wrap justify-between items-center gap-4">
@@ -50,7 +52,7 @@ export function ShareOptions({
         <Button
           variant="outline"
           onClick={onNewVote}
-          className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full px-6"
+          className="bg-[#3D0D5F] backdrop-blur-sm border text-white rounded-full px-6"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           New Vote
@@ -62,7 +64,7 @@ export function ShareOptions({
           <DialogTrigger asChild>
             <Button
               variant="outline"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full"
+              className="bg-[#3D0D5F] backdrop-blur-sm border text-white rounded-full"
             >
               <QrCode className="mr-2 h-4 w-4" />
               QR Code
@@ -75,11 +77,21 @@ export function ShareOptions({
             <div className="flex flex-col items-center justify-center p-4">
               {qrCodeUrl && (
                 <div className="bg-white p-4 rounded-lg mb-4">
-                  <img src={qrCodeUrl || "/placeholder.svg"} alt="QR Code" width={200} height={200} />
+                  <img
+                    src={qrCodeUrl || "/placeholder.svg"}
+                    alt="QR Code"
+                    width={200}
+                    height={200}
+                  />
                 </div>
               )}
-              <p className="text-center text-sm text-white/70 mb-4">Scan this QR code to view these results</p>
-              <Button onClick={() => handleCopy()} className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white">
+              <p className="text-center text-sm text-white/70 mb-4">
+                Scan this QR code to view these results
+              </p>
+              <Button
+                onClick={() => handleCopy()}
+                className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+              >
                 <Copy className="mr-2 h-4 w-4" />
                 Copy Link
               </Button>
@@ -91,7 +103,7 @@ export function ShareOptions({
           <DialogTrigger asChild>
             <Button
               variant="outline"
-              className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full"
+              className="bg-[#3D0D5F] backdrop-blur-sm border  text-white rounded-full"
             >
               <Download className="mr-2 h-4 w-4" />
               Result Card
@@ -110,7 +122,10 @@ export function ShareOptions({
                   style={{ maxHeight: "300px" }}
                 />
               </div>
-              <Button onClick={onDownloadCard} className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white">
+              <Button
+                onClick={onDownloadCard}
+                className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+              >
                 <Download className="mr-2 h-4 w-4" />
                 Download Image
               </Button>
@@ -123,7 +138,7 @@ export function ShareOptions({
             <Button
               className={cn(
                 "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full px-6 transition-all duration-300",
-                copied ? "bg-green-500" : "",
+                copied ? "bg-green-500" : ""
               )}
             >
               <Share2 className="mr-2 h-4 w-4" />
@@ -134,29 +149,37 @@ export function ShareOptions({
             <div className="space-y-4">
               <h4 className="font-medium">Share Options</h4>
               <div className="space-y-3">
-                <Button onClick={() => handleCopy()} className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white">
+                <Button
+                  onClick={() => handleCopy()}
+                  className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                >
                   <Copy className="mr-2 h-4 w-4" />
                   Copy Full Link
                 </Button>
-                <Button onClick={handleShortenUrl} className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white">
+                <Button
+                  onClick={handleShortenUrl}
+                  className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                >
                   <Share2 className="mr-2 h-4 w-4" />
                   Get Short URL
                 </Button>
                 {shortUrl && (
                   <div className="flex items-center gap-2 mt-2 p-3 bg-[#2E0A4A] rounded-md border border-white/10">
-                    <code className="text-sm flex-1 overflow-x-auto text-white">{shortUrl}</code>
+                    <code className="text-sm flex-1 overflow-x-auto text-white">
+                      {shortUrl}
+                    </code>
                     <Button
                       size="icon"
                       variant="ghost"
                       onClick={() => {
-                        navigator.clipboard.writeText(shortUrl)
+                        navigator.clipboard.writeText(shortUrl);
                         toast({
                           title: "Copied",
                           description: "Short URL copied to clipboard",
                           duration: 3000,
-                        })
+                        });
                       }}
-                      className="h-8 w-8 bg-white/5 hover:bg-white/10"
+                      className="h-8 w-8 bg-[#3D0D5F]"
                     >
                       <Copy className="h-4 w-4" />
                     </Button>
@@ -168,5 +191,5 @@ export function ShareOptions({
         </Popover>
       </div>
     </div>
-  )
+  );
 }

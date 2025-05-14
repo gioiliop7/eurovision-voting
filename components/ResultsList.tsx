@@ -1,14 +1,8 @@
 // Results list component
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Trophy } from "lucide-react"
-import type { Country } from "@/types"
-import { cn } from "@/lib/utils"
-
-interface ResultsListProps {
-  countries: Country[]
-  votes: Record<string, number>
-  reactions: Record<string, string>
-}
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Trophy } from "lucide-react";
+import type { ResultsListProps } from "@/types";
+import { cn } from "@/lib/utils";
 
 export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
   return (
@@ -22,7 +16,7 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
       <CardContent className="p-6">
         <div className="space-y-4">
           {countries.map((country, index) => {
-            const countryPoints = votes[country.id] || 0
+            const countryPoints = votes[country.id] || 0;
 
             return (
               <div
@@ -31,7 +25,7 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
                   "flex items-center justify-between p-4 rounded-md transition-all duration-300",
                   index < 3
                     ? "bg-[#4A1073]/50 border border-white/10 shadow-md"
-                    : "hover:bg-[#4A1073]/30 border border-white/5",
+                    : "hover:bg-[#4A1073]/30 border border-white/5"
                 )}
               >
                 <div className="flex items-center gap-3">
@@ -41,34 +35,41 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
                       index === 0
                         ? "bg-[#FF0066] text-white"
                         : index === 1
-                          ? "bg-[#4A1073] text-white"
-                          : index === 2
-                            ? "bg-[#2E0A4A] text-white"
-                            : "bg-white/10 text-white",
+                        ? "bg-[#4A1073] text-white"
+                        : index === 2
+                        ? "bg-[#2E0A4A] text-white"
+                        : "bg-white/10 text-white"
                     )}
                   >
                     {index + 1}
                   </span>
-                  <span className="text-2xl mr-2">{country.flag}</span>
-                  <span className="text-white font-medium uppercase tracking-wider">{country.name}</span>
-
-                  {reactions[country.id] && <span className="text-xl ml-2">{reactions[country.id]}</span>}
+                  <span className={`fi fi-${country?.iso} fis`}></span>
+                  <span className="text-white font-medium uppercase tracking-wider">
+                    {country.name}
+                  </span>
+                  {reactions[country.id] && (
+                    <span className="text-xl ml-2">
+                      {reactions[country.id]}
+                    </span>
+                  )}
                 </div>
                 <div className="flex items-center">
                   <span
                     className={cn(
                       "font-bold text-lg px-4 py-1 rounded-md",
-                      countryPoints > 0 ? "bg-[#FF0066]/20 text-white" : "text-gray-400",
+                      countryPoints > 0
+                        ? "bg-[#FF0066]/20 text-white"
+                        : "text-gray-400"
                     )}
                   >
                     {countryPoints} pts
                   </span>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

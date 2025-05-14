@@ -1,16 +1,13 @@
-// Douze points animation component
-import type { Country } from "@/types"
+import type { DouzePointsAnimationProps } from "@/types";
 
-interface DouzePointsAnimationProps {
-  show: boolean
-  countryId: string
-  countries: Country[]
-}
+export function DouzePointsAnimation({
+  show,
+  countryId,
+  countries,
+}: DouzePointsAnimationProps) {
+  if (!show) return null;
 
-export function DouzePointsAnimation({ show, countryId, countries }: DouzePointsAnimationProps) {
-  if (!show) return null
-
-  const country = countries.find((c) => c.id === countryId)
+  const country = countries.find((c) => c.id === countryId);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
@@ -22,5 +19,5 @@ export function DouzePointsAnimation({ show, countryId, countries }: DouzePoints
         </div>
       </div>
     </div>
-  )
+  );
 }
