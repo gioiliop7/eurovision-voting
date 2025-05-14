@@ -198,7 +198,7 @@ export default function Home() {
                 </TabsContent>
               </Tabs>
 
-              <div className="flex justify-center gap-6 mt-8">
+              <div className="flex justify-center gap-6 mt-8 flex-col md:flex-row">
                 <Button
                   variant="outline"
                   onClick={saveVotes}
