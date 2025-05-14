@@ -32,7 +32,7 @@ export function CategoryVoting({
               "rounded-md uppercase tracking-wider px-4 py-2",
               activeCategory === category.id
                 ? "bg-[#FF0066] hover:bg-[#E6005C] border-0 text-white"
-                : "bg-[#4A1073]/50 border border-white/20 hover:bg-[#4A1073] text-white"
+                : "bg-[#4A1073]/50 border border-white/20 hover:bg-[#4A1073] text-white hover:text-white"
             )}
           >
             {category.name}
