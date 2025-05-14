@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 339 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 270 50% 25%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 339 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 339 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 270 50% 10%;
+    --foreground: 210 40% 98%;
+    --card: 270 50% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 270 50% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 339 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 270 50% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 270 50% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 339 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 50% 20%;
+    --input: 270 50% 20%;
+    --ring: 339 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff0066, #cc0052);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #e6005c, #b30049);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Eurovision 2025 specific styles */
+@layer components {
+  .eurovision-card {
+    @apply bg-[#4A1073]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-md overflow-hidden;
+  }
+
+  .eurovision-button {
+    @apply bg-[#FF0066] hover:bg-[#E6005C] text-white rounded-md transition-all duration-200;
+  }
+
+  .eurovision-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#FF0066] to-[#FF66A3];
+  }
+
+  .eurovision-header {
+    @apply bg-[#4A1073] text-white py-3 px-4 uppercase font-bold tracking-wider border-b border-white/10;
+  }
+
+  .eurovision-container {
+    @apply max-w-6xl mx-auto px-4 py-8;
+  }
+
+  .eurovision-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .eurovision-country-card {
+    @apply bg-[#4A1073]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-md overflow-hidden transition-all duration-300;
+  }
+
+  .eurovision-country-header {
+    @apply bg-[#3D0D5F] text-white py-3 px-4 flex items-center justify-between border-b border-white/10;
+  }
+
+  .eurovision-tabs {
+    @apply bg-[#2E0A4A] text-white rounded-md overflow-hidden border border-white/10;
+  }
+
+  .eurovision-tab-active {
+    @apply bg-[#FF0066] text-white;
+  }
+
+  .eurovision-podium {
+    @apply bg-[#4A1073]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-md overflow-hidden;
+  }
+
+  .eurovision-winner {
+    @apply bg-gradient-to-b from-[#FF0066] to-[#CC0052] text-white border-b border-white/10;
+  }
+
+  .eurovision-second {
+    @apply bg-gradient-to-b from-[#4A1073] to-[#3D0D5F] text-white border-b border-white/10;
+  }
+
+  .eurovision-third {
+    @apply bg-gradient-to-b from-[#2E0A4A] to-[#1F0733] text-white border-b border-white/10;
+  }
+}
