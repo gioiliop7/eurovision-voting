@@ -32,7 +32,7 @@ export function CategoryResults({
               "rounded-full px-4 py-2",
               activeCategory === category.id
                 ? "bg-gradient-to-r from-pink-500 to-purple-600 border-0 text-white"
-                : "bg-white/5 border border-white/20 hover:bg-white/10 text-white"
+                : "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
             )}
           >
             {category.name}
@@ -43,7 +43,7 @@ export function CategoryResults({
       {activeCategory && (
         <Card className="backdrop-blur-md bg-white/5 border border-white/10 shadow-xl rounded-md overflow-hidden">
           <CardHeader className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-b border-white/10 p-4">
-            <CardTitle className="flex items-center gap-2 text-white">
+            <CardTitle className="flex items-center gap-2 text-black">
               <Trophy className="h-5 w-5 text-yellow-300" />
               {customCategories.find((c) => c.id === activeCategory)?.name}{" "}
               Results
@@ -78,16 +78,16 @@ export function CategoryResults({
                             index === 0
                               ? "bg-gradient-to-r from-yellow-400 to-amber-500 text-black"
                               : index === 1
-                              ? "bg-gradient-to-r from-gray-300 to-gray-400 text-black"
+                              ? "bg-gradient-to-r from-gray-300 to-gray-400 text-white"
                               : index === 2
                               ? "bg-gradient-to-r from-amber-700 to-amber-800 text-white"
-                              : "bg-white/10 text-white"
+                              : "bg-white/10 text-black"
                           )}
                         >
                           {index + 1}
                         </span>
                         <span className="text-2xl mr-2">{country.flag}</span>
-                        <span className="text-white font-medium">
+                        <span className="text-black font-medium">
                           {country.name}
                         </span>
                       </div>
@@ -107,7 +107,7 @@ export function CategoryResults({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                        <span className="ml-3 font-bold text-white">
+                        <span className="ml-3 font-bold text-black">
                           {categoryPoints}
                         </span>
                       </div>
