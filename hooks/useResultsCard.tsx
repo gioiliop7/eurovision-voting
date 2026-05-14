@@ -36,7 +36,7 @@ export function useResultsCard(
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 60px Poppins";
     ctx.textAlign = "center";
-    ctx.fillText("My Eurovision 2025 Votes", canvas.width / 2, 100);
+    ctx.fillText("My Eurovision 2026 Votes", canvas.width / 2, 100);
 
     const top3 = sortedCountries.slice(0, 3);
 

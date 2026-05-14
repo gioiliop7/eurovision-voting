@@ -12,6 +12,7 @@ import { CategoryResults } from "@/components/CategoryResults";
 import { ShareOptions } from "@/components/ShareOptions";
 import { DouzePointsAnimation } from "@/components/DouzePointsAnimation";
 import { EurovisionHeader } from "@/components/EurovisionHeader";
+import { LiveScoreboard } from "@/components/LiveScoreboard";
 import { useVotingSystem } from "@/hooks/useVotingSystem";
 import { useResultsCard } from "@/hooks/useResultsCard";
 import { useQRCode } from "@/hooks/useQRCode";
@@ -142,6 +143,9 @@ export default function Home() {
         countries={COUNTRIES}
       />
 
+      {/* Live Scoreboard - visible during voting */}
+      {isVoting && <LiveScoreboard votes={votes} />}
+
       {/* Eurovision Header */}
       <EurovisionHeader />
 
@@ -151,16 +155,16 @@ export default function Home() {
             <>
               {/* Voting Interface */}
               <Tabs defaultValue="points" className="mb-8">
-                <TabsList className="grid w-full grid-cols-2 lg:w-1/2 lg:mx-auto mb-8 bg-[#2E0A4A] text-white rounded-md overflow-hidden border border-white/10">
+                <TabsList className="grid w-full grid-cols-2 lg:w-1/2 lg:mx-auto mb-8 bg-[#050A1E] text-white rounded-md overflow-hidden border border-white/10">
                   <TabsTrigger
                     value="points"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
+                    className="data-[state=active]:bg-[#E8007D] data-[state=active]:text-white py-1"
                   >
                     Points
                   </TabsTrigger>
                   <TabsTrigger
                     value="categories"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
+                    className="data-[state=active]:bg-[#E8007D] data-[state=active]:text-white py-1"
                   >
                     Categories
                   </TabsTrigger>
@@ -202,7 +206,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={saveVotes}
-                  className="bg-[#4A1073]/50 backdrop-blur-sm border border-white/20 hover:bg-[#4A1073] text-white hover:text-white rounded-md px-6 py-2"
+                  className="bg-[#0D1535]/50 backdrop-blur-sm border border-white/20 hover:bg-[#0D1535] text-white hover:text-white rounded-md px-6 py-2"
                 >
                   <Save className="mr-2 h-4 w-4" />
                   Save Progress
@@ -212,7 +216,7 @@ export default function Home() {
                   size="lg"
                   onClick={finishVoting}
                   disabled={Object.keys(votes).length === 0}
-                  className="bg-[#FF0066] hover:bg-[#E6005C] text-white rounded-md px-8 py-6 text-lg font-medium shadow-lg shadow-[#FF0066]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#FF0066]/40"
+                  className="bg-[#E8007D] hover:bg-[#C5006A] text-white rounded-md px-8 py-6 text-lg font-medium shadow-lg shadow-[#E8007D]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#E8007D]/40"
                 >
                   <Star className="mr-2 h-5 w-5" />
                   Finish Voting
@@ -240,16 +244,16 @@ export default function Home() {
 
               {/* Results Tabs */}
               <Tabs defaultValue="points" className="mb-8">
-                <TabsList className="grid w-full grid-cols-2 lg:w-1/2 lg:mx-auto mb-8 bg-[#2E0A4A] text-white rounded-md overflow-hidden border border-white/10">
+                <TabsList className="grid w-full grid-cols-2 lg:w-1/2 lg:mx-auto mb-8 bg-[#050A1E] text-white rounded-md overflow-hidden border border-white/10">
                   <TabsTrigger
                     value="points"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
+                    className="data-[state=active]:bg-[#E8007D] data-[state=active]:text-white py-1"
                   >
                     Points
                   </TabsTrigger>
                   <TabsTrigger
                     value="categories"
-                    className="data-[state=active]:bg-[#FF0066] data-[state=active]:text-white py-1"
+                    className="data-[state=active]:bg-[#E8007D] data-[state=active]:text-white py-1"
                   >
                     Categories
                   </TabsTrigger>

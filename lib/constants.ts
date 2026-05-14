@@ -1,47 +1,46 @@
 // Store all constants used across the application
 import type { Country, Theme } from "@/types";
 
-// Eurovision 2025 FINAL countries
+// Eurovision2026 FINAL countries - Vienna Grand Final
 export const COUNTRIES: Country[] = [
   { id: "albania", name: "Albania", iso: "al" },
-  { id: "armenia", name: "Armenia", iso: "am" },
+  { id: "australia", name: "Australia", iso: "au" },
   { id: "austria", name: "Austria", iso: "at" },
+  { id: "belgium", name: "Belgium", iso: "be" },
+  { id: "bulgaria", name: "Bulgaria", iso: "bg" },
+  { id: "croatia", name: "Croatia", iso: "hr" },
+  { id: "cyprus", name: "Cyprus", iso: "cy" },
+  { id: "czechia", name: "Czechia", iso: "cz" },
   { id: "denmark", name: "Denmark", iso: "dk" },
-  { id: "estonia", name: "Estonia", iso: "ee" },
   { id: "finland", name: "Finland", iso: "fi" },
   { id: "france", name: "France", iso: "fr" },
   { id: "germany", name: "Germany", iso: "de" },
   { id: "greece", name: "Greece", iso: "gr" },
-  { id: "iceland", name: "Iceland", iso: "is" },
   { id: "israel", name: "Israel", iso: "il" },
   { id: "italy", name: "Italy", iso: "it" },
-  { id: "latvia", name: "Latvia", iso: "lv" },
   { id: "lithuania", name: "Lithuania", iso: "lt" },
-  { id: "luxembourg", name: "Luxembourg", iso: "lu" },
   { id: "malta", name: "Malta", iso: "mt" },
-  { id: "netherlands", name: "Netherlands", iso: "nl" },
+  { id: "moldova", name: "Moldova", iso: "md" },
   { id: "norway", name: "Norway", iso: "no" },
   { id: "poland", name: "Poland", iso: "pl" },
-  { id: "portugal", name: "Portugal", iso: "pt" },
-  { id: "spain", name: "Spain", iso: "es" },
+  { id: "romania", name: "Romania", iso: "ro" },
+  { id: "serbia", name: "Serbia", iso: "rs" },
   { id: "sweden", name: "Sweden", iso: "se" },
-  { id: "switzerland", name: "Switzerland", iso: "ch" },
   { id: "ukraine", name: "Ukraine", iso: "ua" },
   { id: "united_kingdom", name: "United Kingdom", iso: "gb" },
-  { id: "san_marino", name: "San Marino", iso: "sm" },
 ];
 
-// Available themes - updated for Eurovision 2025
+// Available themes - Eurovision2026 Vienna
 export const THEMES: Theme[] = [
   {
     id: "eurovision2025",
-    name: "Eurovision 2025",
-    bgClass: "bg-gradient-to-br from-[#2E0A4A] via-[#4A1073] to-[#3D0D5F]",
+    name: "Eurovision 2026 Vienna",
+    bgClass: "bg-gradient-to-br from-[#050A1E] via-[#0D1535] to-[#050A1E]",
   },
   {
-    id: "eurovisionRed",
-    name: "Eurovision Red",
-    bgClass: "bg-gradient-to-br from-[#8A0303] via-[#B80000] to-[#8A0303]",
+    id: "eurovisionMagenta",
+    name: "Magenta Night",
+    bgClass: "bg-gradient-to-br from-[#1A0030] via-[#2D0055] to-[#1A0030]",
   },
   {
     id: "classic",

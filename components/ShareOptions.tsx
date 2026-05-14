@@ -52,7 +52,7 @@ export function ShareOptions({
         <Button
           variant="outline"
           onClick={onNewVote}
-          className="bg-[#3D0D5F] backdrop-blur-sm border text-white rounded-full px-6"
+          className="bg-[#091028] backdrop-blur-sm border border-white/20 text-white rounded-full px-6 hover:bg-[#0D1535]"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           New Vote
@@ -64,13 +64,13 @@ export function ShareOptions({
           <DialogTrigger asChild>
             <Button
               variant="outline"
-              className="bg-[#3D0D5F] backdrop-blur-sm border text-white rounded-full"
+              className="bg-[#091028] backdrop-blur-sm border border-white/20 text-white rounded-full hover:bg-[#0D1535]"
             >
               <QrCode className="mr-2 h-4 w-4" />
               QR Code
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-[#3D0D5F] border border-white/10 text-white">
+          <DialogContent className="bg-[#091028] border border-[#00C8EC]/20 text-white">
             <DialogHeader>
               <DialogTitle>Share Your Results</DialogTitle>
             </DialogHeader>
@@ -90,7 +90,7 @@ export function ShareOptions({
               </p>
               <Button
                 onClick={() => handleCopy()}
-                className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                className="w-full bg-[#E8007D] hover:bg-[#C5006A] text-white"
               >
                 <Copy className="mr-2 h-4 w-4" />
                 Copy Link
@@ -103,13 +103,13 @@ export function ShareOptions({
           <DialogTrigger asChild>
             <Button
               variant="outline"
-              className="bg-[#3D0D5F] backdrop-blur-sm border  text-white rounded-full"
+              className="bg-[#091028] backdrop-blur-sm border border-white/20 text-white rounded-full hover:bg-[#0D1535]"
             >
               <Download className="mr-2 h-4 w-4" />
               Result Card
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-md bg-[#3D0D5F] border border-white/10 text-white">
+          <DialogContent className="sm:max-w-md bg-[#091028] border border-[#00C8EC]/20 text-white">
             <DialogHeader>
               <DialogTitle>Share Your Results</DialogTitle>
             </DialogHeader>
@@ -124,7 +124,7 @@ export function ShareOptions({
               </div>
               <Button
                 onClick={onDownloadCard}
-                className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                className="w-full bg-[#E8007D] hover:bg-[#C5006A] text-white"
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download Image
@@ -137,7 +137,7 @@ export function ShareOptions({
           <PopoverTrigger asChild>
             <Button
               className={cn(
-                "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full px-6 transition-all duration-300",
+                "bg-gradient-to-r from-[#E8007D] to-[#5B21B6] hover:from-[#C5006A] hover:to-[#4A1A96] text-white rounded-full px-6 transition-all duration-300",
                 copied ? "bg-green-500" : ""
               )}
             >
@@ -145,26 +145,26 @@ export function ShareOptions({
               {copied ? "Copied!" : "Share Results"}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-80 bg-[#3D0D5F] border border-white/10 text-white">
+          <PopoverContent className="w-80 bg-[#091028] border border-[#00C8EC]/20 text-white">
             <div className="space-y-4">
               <h4 className="font-medium">Share Options</h4>
               <div className="space-y-3">
                 <Button
                   onClick={() => handleCopy()}
-                  className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                  className="w-full bg-[#E8007D] hover:bg-[#C5006A] text-white"
                 >
                   <Copy className="mr-2 h-4 w-4" />
                   Copy Full Link
                 </Button>
                 <Button
                   onClick={handleShortenUrl}
-                  className="w-full bg-[#FF0066] hover:bg-[#E6005C] text-white"
+                  className="w-full bg-[#E8007D] hover:bg-[#C5006A] text-white"
                 >
                   <Share2 className="mr-2 h-4 w-4" />
                   Get Short URL
                 </Button>
                 {shortUrl && (
-                  <div className="flex items-center gap-2 mt-2 p-3 bg-[#2E0A4A] rounded-md border border-white/10">
+                  <div className="flex items-center gap-2 mt-2 p-3 bg-[#050A1E] rounded-md border border-[#00C8EC]/20">
                     <code className="text-sm flex-1 overflow-x-auto text-white">
                       {shortUrl}
                     </code>
@@ -179,7 +179,7 @@ export function ShareOptions({
                           duration: 3000,
                         });
                       }}
-                      className="h-8 w-8 bg-[#3D0D5F]"
+                      className="h-8 w-8 bg-[#091028]"
                     >
                       <Copy className="h-4 w-4" />
                     </Button>

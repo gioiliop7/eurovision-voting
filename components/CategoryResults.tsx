@@ -31,8 +31,8 @@ export function CategoryResults({
             className={cn(
               "rounded-full px-4 py-2",
               activeCategory === category.id
-                ? "bg-gradient-to-r from-pink-500 to-purple-600 border-0 text-white"
-                : "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+                ? "bg-gradient-to-r from-[#E8007D] to-[#5B21B6] border-0 text-white"
+                : "bg-gradient-to-r from-[#E8007D] to-[#5B21B6] text-white border-0"
             )}
           >
             {category.name}
@@ -41,9 +41,9 @@ export function CategoryResults({
       </div>
 
       {activeCategory && (
-        <Card className="backdrop-blur-md bg-white/5 border border-white/10 shadow-xl rounded-md overflow-hidden">
-          <CardHeader className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-b border-white/10 p-4">
-            <CardTitle className="flex items-center gap-2 text-black">
+        <Card className="backdrop-blur-md bg-[#0D1535]/80 border border-[#00C8EC]/15 shadow-xl rounded-md overflow-hidden">
+          <CardHeader className="bg-gradient-to-r from-[#E8007D]/20 to-[#5B21B6]/20 border-b border-white/10 p-4">
+            <CardTitle className="flex items-center gap-2 text-white">
               <Trophy className="h-5 w-5 text-yellow-300" />
               {customCategories.find((c) => c.id === activeCategory)?.name}{" "}
               Results
@@ -67,7 +67,7 @@ export function CategoryResults({
                       className={cn(
                         "flex items-center justify-between p-4 rounded-xl transition-all duration-300",
                         index < 3
-                          ? "bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-white/10 shadow-md"
+                          ? "bg-gradient-to-r from-[#E8007D]/10 to-[#5B21B6]/10 border border-[#00C8EC]/15 shadow-md"
                           : "hover:bg-white/5 border border-white/5"
                       )}
                     >
@@ -81,13 +81,13 @@ export function CategoryResults({
                               ? "bg-gradient-to-r from-gray-300 to-gray-400 text-white"
                               : index === 2
                               ? "bg-gradient-to-r from-amber-700 to-amber-800 text-white"
-                              : "bg-white/10 text-black"
+                              : "bg-white/10 text-white"
                           )}
                         >
                           {index + 1}
                         </span>
-                        <span className="text-2xl mr-2">{country.flag}</span>
-                        <span className="text-black font-medium">
+                        <span className={`fi fi-${country.iso} fis text-2xl mr-2`}></span>
+                        <span className="text-white font-medium">
                           {country.name}
                         </span>
                       </div>
@@ -97,17 +97,17 @@ export function CategoryResults({
                             <TooltipTrigger asChild>
                               <div className="w-full bg-white/10 h-4 rounded-full overflow-hidden">
                                 <div
-                                  className="h-full bg-gradient-to-r from-pink-500 to-purple-600"
+                                  className="h-full bg-gradient-to-r from-[#E8007D] to-[#5B21B6]"
                                   style={{ width: `${categoryPoints * 10}%` }}
                                 ></div>
                               </div>
                             </TooltipTrigger>
-                            <TooltipContent className="bg-[#3D0D5F] border border-white/10 text-white">
+                            <TooltipContent className="bg-[#091028] border border-[#00C8EC]/20 text-white">
                               <p>{categoryPoints} / 10</p>
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                        <span className="ml-3 font-bold text-black">
+                        <span className="ml-3 font-bold text-white">
                           {categoryPoints}
                         </span>
                       </div>

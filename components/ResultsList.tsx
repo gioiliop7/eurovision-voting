@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 
 export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
   return (
-    <Card className="bg-[#4A1073]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-md overflow-hidden">
-      <CardHeader className="bg-[#3D0D5F] border-b border-white/10 p-4">
+    <Card className="bg-[#0D1535]/80 backdrop-blur-md border border-[#00C8EC]/15 shadow-lg rounded-md overflow-hidden">
+      <CardHeader className="bg-[#091028] border-b border-white/10 p-4">
         <CardTitle className="flex items-center gap-2 text-white uppercase tracking-wider">
-          <Trophy className="h-5 w-5 text-[#FF0066]" />
+          <Trophy className="h-5 w-5 text-[#E8007D]" />
           Full Results
         </CardTitle>
       </CardHeader>
@@ -24,8 +24,8 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
                 className={cn(
                   "flex items-center justify-between p-4 rounded-md transition-all duration-300",
                   index < 3
-                    ? "bg-[#4A1073]/50 border border-white/10 shadow-md"
-                    : "hover:bg-[#4A1073]/30 border border-white/5"
+                    ? "bg-[#0D1535]/50 border border-[#00C8EC]/15 shadow-md"
+                    : "hover:bg-[#0D1535]/30 border border-white/5"
                 )}
               >
                 <div className="flex items-center gap-3">
@@ -33,11 +33,11 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
                     className={cn(
                       "w-8 h-8 flex items-center justify-center text-sm font-medium rounded-md",
                       index === 0
-                        ? "bg-[#FF0066] text-white"
+                        ? "bg-[#E8007D] text-white"
                         : index === 1
-                        ? "bg-[#4A1073] text-white"
+                        ? "bg-[#00C8EC] text-[#050A1E]"
                         : index === 2
-                        ? "bg-[#2E0A4A] text-white"
+                        ? "bg-[#5B21B6] text-white"
                         : "bg-white/10 text-white"
                     )}
                   >
@@ -58,7 +58,7 @@ export function ResultsList({ countries, votes, reactions }: ResultsListProps) {
                     className={cn(
                       "font-bold text-lg px-4 py-1 rounded-md",
                       countryPoints > 0
-                        ? "bg-[#FF0066]/20 text-white"
+                        ? "bg-[#E8007D]/20 text-white"
                         : "text-gray-400"
                     )}
                   >
